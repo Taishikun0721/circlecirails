@@ -55,7 +55,6 @@ jobs:
       - run:
           name: waiting for stating database
           command: |
-            service mysql start
             bundle exec rails db:create
             bundle exec rails db:schema:load
 
