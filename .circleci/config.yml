@@ -20,7 +20,7 @@ jobs:
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: circle_ci_test
+          MYSQL_DB: circle_ci_test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
