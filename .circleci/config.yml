@@ -45,7 +45,7 @@ jobs:
             sudo gem update --system
             sudo gem install bundler
             bundle install --jobs=4 --retry=3 --path vendor/bundle
-            sudo touch /var/lib/mysql/mysql.sock
+            sudo /etc/init.d/mysqld restart
 
       - save_cache:
           paths:
