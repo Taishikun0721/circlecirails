@@ -20,7 +20,7 @@ jobs:
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: circle_ci_test-test
+          MYSQL_DATABASE: circle_ci_test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -55,6 +55,7 @@ jobs:
       - run:
           name: waiting for stating database
           command: |
+            mysql -h 127.0.0.1 -u root circle_ci_test
             bundle exec rails db:create
             bundle exec rails db:schema:load
 
