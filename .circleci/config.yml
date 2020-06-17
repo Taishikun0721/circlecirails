@@ -45,7 +45,6 @@ jobs:
             sudo gem update --system
             sudo gem install bundler
             bundle install --jobs=4 --retry=3 --path vendor/bundle
-            sudo /etc/init.d/mysqld restart
 
       - save_cache:
           paths:
@@ -56,6 +55,7 @@ jobs:
       - run:
           name: waiting for stating database
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+      - run: service mysql start
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
 
